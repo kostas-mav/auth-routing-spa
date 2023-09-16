@@ -1,0 +1,64 @@
+:host {
+  width: 100%;
+  max-width: var(--form-max);
+  outline: solid 1px green;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  box-shadow: 4px 5px 11px 3px rgba(0, 0, 0, 0.29);
+  -webkit-box-shadow: 4px 5px 11px 3px rgba(0, 0, 0, 0.29);
+  -moz-box-shadow: 4px 5px 11px 3px rgba(0, 0, 0, 0.29);
+
+  label {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+}
+
+.selected-option-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border: 1px solid blue;
+  cursor: pointer;
+}
+
+.options-container {
+  max-width: calc(var(--form-max) - 2rem);
+  background-color: white;
+  border: 1px solid silver;
+  border-top: none;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+}
+
+.option {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.blue {
+  color: blue;
+}
+
+.green {
+  color: green;
+}
+
+.orange {
+  color: orange;
+}
+
+.disabled {
+  background-color: cyan;
+  color: silver;
+  cursor: default;
+}

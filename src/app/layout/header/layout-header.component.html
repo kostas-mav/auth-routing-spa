@@ -1,0 +1,20 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  aria-label="Example icon-button with a menu"
+>
+  <i class="las la-bars"></i>
+</button>
+
+<!-- Hidden -->
+<mat-menu #menu="matMenu" yPosition="above" xPosition="before">
+  <button mat-menu-item>
+    <a routerLink="/">Home</a>
+  </button>
+  <button mat-menu-item>
+    <a routerLink="/placeholder">Placeholder</a>
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <span>Logout</span>
+  </button>
+</mat-menu>

@@ -1,0 +1,16 @@
+<div class="auth-form-container">
+  <form [formGroup]="form" class="login-form">
+    <mdd-text-input
+      formControlName="email"
+      placeholder="Email"
+      type="email"
+    ></mdd-text-input>
+
+    <mdd-password-input
+      formControlName="password"
+      placeholder="Password"
+    ></mdd-password-input>
+  </form>
+
+  <button mddFullButton (click)="login()">Login</button>
+</div>
