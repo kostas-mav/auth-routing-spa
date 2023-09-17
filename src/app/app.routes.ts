@@ -35,10 +35,10 @@ export const routes: Route[] = [
           ),
       },
       {
-        path: 'placeholder',
+        path: 'dynamic-form',
         loadChildren: () =>
-          import('src/app/placeholder/placeholder.routes').then(
-            (m) => m.PLACEHOLDER_ROUTES
+          import('src/app/dynamic-form/dynamic-form.routes').then(
+            (m) => m.DYNAMIC_FORM_ROUTES
           ),
       },
     ],
