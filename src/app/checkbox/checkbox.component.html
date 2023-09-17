@@ -1,0 +1,74 @@
+<form [formGroup]="form">
+  <div class="checkbox-container">
+    <app-single-checkbox
+      label="Who's awesome?"
+      formControlName="single"
+    ></app-single-checkbox>
+  </div>
+
+  <ng-container *ngIf="form.controls.single.value === true">
+    <div class="checkbox-container">
+      <app-checkbox-tree
+        [options]="singleLevelOptions"
+        label="Single Level Checkbox Tree"
+        formControlName="singleLevel"
+        behavior="2-state"
+      ></app-checkbox-tree>
+    </div>
+
+    <div class="checkbox-container">
+      <app-checkbox-tree
+        [options]="doubleLevelOptions"
+        label="Double Level Checkbox Tree"
+        formControlName="doubleLevel"
+        behavior="3-state"
+      ></app-checkbox-tree>
+    </div>
+
+    <div class="checkbox-container">
+      <app-checkbox-tree
+        [options]="multiLevelOptions"
+        label="Multi Level Checkbox Tree"
+        formControlName="multiLevel"
+        behavior="3-state"
+      ></app-checkbox-tree>
+    </div>
+
+    <div class="checkbox-container">
+      <app-checkbox-tree
+        [options]="multiLevelOptions"
+        label="Mixed Level Checkbox Tree"
+        formControlName="mixedLevel"
+        behavior="3-state"
+      ></app-checkbox-tree>
+    </div>
+
+    <div class="checkbox-container">
+      <app-search-checkbox-tree
+        [options]="multiLevelOptions"
+        label="Search Input Checkbox Tree"
+        formControlName="mixedLevel"
+        behavior="3-state"
+      ></app-search-checkbox-tree>
+    </div>
+
+    <div class="checkbox-container">
+      <app-chips-checkbox-tree
+        [options]="multiLevelOptions"
+        label="Checkbox Tree With Chips"
+        formControlName="chips"
+        behavior="3-state"
+      ></app-chips-checkbox-tree>
+    </div>
+
+    <div class="checkbox-container">
+      <app-chips-checkbox-tree
+        [options]="multiLevelOptions"
+        label="Checkbox Tree With Parent Chips"
+        formControlName="parentChips"
+        behavior="3-state"
+        enableParentChips
+      ></app-chips-checkbox-tree>
+    </div>
+  </ng-container>
+</form>

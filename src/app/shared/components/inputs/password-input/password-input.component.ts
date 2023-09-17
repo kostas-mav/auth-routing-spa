@@ -9,7 +9,7 @@ import { Subject, takeUntil, tap } from 'rxjs';
 import { ngCVAProvider } from 'src/app/shared/utils/control-value-accessor-provider';
 
 @Component({
-  selector: 'mdd-password-input',
+  selector: 'app-password-input',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   providers: [ngCVAProvider(PasswordInputComponent)],

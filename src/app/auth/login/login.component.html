@@ -1,15 +1,15 @@
 <div class="auth-form-container">
   <form [formGroup]="form" class="login-form">
-    <mdd-text-input
+    <app-text-input
       formControlName="email"
       placeholder="Email"
       type="email"
-    ></mdd-text-input>
+    ></app-text-input>
 
-    <mdd-password-input
+    <app-password-input
       formControlName="password"
       placeholder="Password"
-    ></mdd-password-input>
+    ></app-password-input>
   </form>
 
   <button mddFullButton (click)="login()">Login</button>

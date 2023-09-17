@@ -25,35 +25,11 @@
   align-items: flex-start;
   width: 100%;
   height: 100%;
-  background-color: cyan;
-
-  .layout-sidenav {
-    max-width: 200px;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-
-    nav {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 1rem;
-      width: 100%;
-      height: 100%;
-
-      a {
-        border: solid 1px red;
-        width: 100%;
-      }
-    }
-  }
+  background-color: var(--secondary);
+  overflow: auto;
 
   .layout-outlet {
     height: 100%;
     width: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
 }

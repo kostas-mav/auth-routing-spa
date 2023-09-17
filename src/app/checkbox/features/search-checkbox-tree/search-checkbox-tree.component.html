@@ -1,0 +1,47 @@
+<div
+  id="checkbox-tree"
+  *ngIf="viewModel$ | async as vm"
+  class="flex flex-col gap-2"
+>
+  <app-input-label *ngIf="label">
+    <h3>{{ label }}</h3>
+    <i class="las la-search"></i>
+  </app-input-label>
+
+  <checkbox-text-input (click)="onTouch()" [formControl]="searchControl" />
+
+  <app-basic-checkbox-tree
+    [behavior]="behavior"
+    [formControl]="valueControl"
+  ></app-basic-checkbox-tree>
+
+  <aside *ngIf="!vm.filteredOptions.length">
+    No results matching your filters.
+  </aside>
+
+  <button
+    class="flex justify-start items-center gap-2 text-sm"
+    *ngIf="
+      options.length > showMoreLimit &&
+      !containerExpanded &&
+      !searchControl.value.length
+    "
+    (click)="expandContainer()"
+  >
+    <i class="las la-plus"></i>
+    <span>Show More ({{ options.length - showMoreLimit }})</span>
+  </button>
+
+  <button
+    class="flex justify-start items-center gap-2 text-sm"
+    *ngIf="
+      options.length > showMoreLimit &&
+      containerExpanded &&
+      !searchControl.value.length
+    "
+    (click)="collapseContainer(vm.checkedItems)"
+  >
+    <i class="las la-minus"></i>
+    <span>Show Less</span>
+  </button>
+</div>

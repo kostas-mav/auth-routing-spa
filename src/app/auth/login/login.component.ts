@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AuthFacade } from '../data-access/auth.facade';
 
 @Component({
-  selector: 'mdd-login',
+  selector: 'app-login',
   standalone: true,
   imports: [
     CommonModule,

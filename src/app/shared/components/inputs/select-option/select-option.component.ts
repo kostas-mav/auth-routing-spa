@@ -25,7 +25,7 @@ export interface SelectOptionItem {
 }
 
 @Component({
-  selector: 'mdd-select-option',
+  selector: 'app-select-option',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   providers: [ngCVAProvider(SelectOptionComponent)],

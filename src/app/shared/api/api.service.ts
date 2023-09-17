@@ -12,27 +12,27 @@ export class ApiService {
   };
 
   get<T>(path: string) {
-    return this.http.get<T>(`http://localhost:3000/${path}`, {
+    return this.http.get<T>(`${path}`, {
       withCredentials: true,
     });
   }
 
   post<T>(path: string, body: any) {
-    return this.http.post<T>(`http://localhost:3000/${path}`, body, {
+    return this.http.post<T>(`${path}`, body, {
       headers: this.headers,
       withCredentials: true,
     });
   }
 
   patch<T>(path: string, body: any) {
-    return this.http.patch<T>(`http://localhost:3000/${path}`, body, {
+    return this.http.patch<T>(`${path}`, body, {
       headers: this.headers,
       withCredentials: true,
     });
   }
 
   delete<T>(path: string, id: string) {
-    return this.http.delete<T>(`http://localhost:3000/${path}/${id}`, {
+    return this.http.delete<T>(`${path}/${id}`, {
       withCredentials: true,
     });
   }

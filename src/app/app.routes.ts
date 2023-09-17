@@ -28,6 +28,13 @@ export const routes: Route[] = [
           import('src/app/about/about.routes').then((m) => m.ABOUT_ROUTES),
       },
       {
+        path: 'checkbox',
+        loadChildren: () =>
+          import('src/app/checkbox/checkbox.routes').then(
+            (m) => m.CHECKBOX_ROUTES
+          ),
+      },
+      {
         path: 'placeholder',
         loadChildren: () =>
           import('src/app/placeholder/placeholder.routes').then(

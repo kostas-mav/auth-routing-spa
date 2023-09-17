@@ -5,7 +5,7 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
 import { AuthFacade } from 'src/app/auth/data-access/auth.facade';
 
 @Component({
-  selector: 'mdd-layout-header',
+  selector: 'app-layout-header',
   standalone: true,
   imports: [CommonModule, RouterModule, MaterialModule],
   templateUrl: './layout-header.component.html',
