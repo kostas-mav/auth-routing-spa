@@ -41,6 +41,13 @@ export const routes: Route[] = [
             (m) => m.DYNAMIC_FORM_ROUTES
           ),
       },
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('src/app/dashboard/dashboard.routes').then(
+            (m) => m.DASHBOARD_ROUTES
+          ),
+      },
     ],
   },
 ];

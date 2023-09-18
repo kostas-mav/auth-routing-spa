@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParamsOptions } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -12,9 +12,7 @@ export class ApiService {
   };
 
   get<T>(path: string) {
-    return this.http.get<T>(`${path}`, {
-      withCredentials: true,
-    });
+    return this.http.get<T>(`${path}`);
   }
 
   post<T>(path: string, body: any) {
