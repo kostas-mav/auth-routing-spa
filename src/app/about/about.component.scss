@@ -1,0 +1,34 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cv-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  width: 100%;
+  height: auto;
+  max-width: 700px;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  background-color: white;
+  padding: 1rem;
+
+  color: var(--font);
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+  }
+}
