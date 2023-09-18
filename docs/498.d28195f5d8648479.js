@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkspa_routing_showcase=self.webpackChunkspa_routing_showcase||[]).push([[498],{3498:(h,s,n)=>{n.r(s),n.d(s,{DYNAMIC_FORM_ROUTES:()=>o});const o=[{path:"",loadComponent:()=>Promise.all([n.e(297),n.e(592),n.e(458)]).then(n.bind(n,9458)).then(t=>t.DynamicFormComponent)}]}}]);

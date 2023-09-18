@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkspa_routing_showcase=self.webpackChunkspa_routing_showcase||[]).push([[614],{614:(t,n,s)=>{s.r(n),s.d(n,{DASHBOARD_ROUTES:()=>o});const o=[{path:"",loadComponent:()=>Promise.all([s.e(297),s.e(815),s.e(592),s.e(961)]).then(s.bind(s,6961)).then(h=>h.DashboardComponent)}]}}]);

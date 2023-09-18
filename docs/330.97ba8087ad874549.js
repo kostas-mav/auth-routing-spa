@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkspa_routing_showcase=self.webpackChunkspa_routing_showcase||[]).push([[330],{4330:(t,s,n)=>{n.r(s),n.d(s,{CHECKBOX_ROUTES:()=>o});const o=[{path:"",loadComponent:()=>Promise.all([n.e(297),n.e(592),n.e(997)]).then(n.bind(n,2151)).then(h=>h.CheckboxPageComponent)}]}}]);
