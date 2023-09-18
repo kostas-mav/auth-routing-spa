@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
         align-items: center;
         width: 100%;
         gap: 1rem;
+        padding-bottom: 0.2rem;
 
         font-weight: 600;
         font-size: 18px;

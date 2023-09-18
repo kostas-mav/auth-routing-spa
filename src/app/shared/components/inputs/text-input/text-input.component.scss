@@ -2,13 +2,13 @@
   width: 100%;
   max-width: var(--form-max);
   outline: solid 1px green;
-  border-radius: 6px;
+  border-radius: 0.5rem;
   box-shadow: 4px 5px 11px 3px rgba(0, 0, 0, 0.29);
   -webkit-box-shadow: 4px 5px 11px 3px rgba(0, 0, 0, 0.29);
   -moz-box-shadow: 4px 5px 11px 3px rgba(0, 0, 0, 0.29);
 
   input {
-    border-radius: 6px;
+    border-radius: 0.5rem;
     width: 100%;
     padding: 0.25rem 0.5rem;
     padding: 0.5rem 1rem;

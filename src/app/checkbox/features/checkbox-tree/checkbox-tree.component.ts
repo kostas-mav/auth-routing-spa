@@ -61,7 +61,7 @@ interface ViewModel {
       ></app-basic-checkbox-tree>
 
       <button
-        class="flex justify-start items-center gap-2 text-sm"
+        class="flex justify-start items-center gap-2 text-sm text-white"
         *ngIf="options.length > showMoreLimit && !containerExpanded"
         (click)="expandContainer()"
       >
@@ -70,7 +70,7 @@ interface ViewModel {
       </button>
 
       <button
-        class="flex justify-start items-center gap-2 text-sm"
+        class="flex justify-start items-center gap-2 text-sm text-white"
         *ngIf="options.length > showMoreLimit && containerExpanded"
         (click)="collapseContainer(vm.checkedItems)"
       >

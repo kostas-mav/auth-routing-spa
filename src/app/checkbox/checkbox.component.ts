@@ -9,6 +9,7 @@ import { SingleCheckboxComponent } from './features/single-checkbox/single-check
 import { SINGLE_LEVEL_DATA } from 'src/mock/single-level-data';
 import { DOUBLE_LEVEL_DATA } from 'src/mock/double-level-data';
 import { MULTI_LEVEL_DATA } from 'src/mock/multi-level-data';
+import { FullButtonComponent } from '../shared/components/buttons/full-button/full-button.component';
 
 const mockSingleOptions: Neat[] = SINGLE_LEVEL_DATA;
 const mockDoubleOptions: Neat[] = DOUBLE_LEVEL_DATA;
@@ -24,6 +25,7 @@ const mockMultiOptions: Neat[] = MULTI_LEVEL_DATA;
     CheckboxTreeComponent,
     SearchCheckboxTreeComponent,
     ChipsCheckboxTreeComponent,
+    FullButtonComponent,
   ],
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
@@ -45,4 +47,11 @@ export class CheckboxPageComponent {
   readonly singleLevelOptions = mockSingleOptions;
   readonly doubleLevelOptions = mockDoubleOptions;
   readonly multiLevelOptions = mockMultiOptions;
+
+  logForm() {
+    console.log(
+      'All option values are passed as an array of IDs.',
+      this.form.value
+    );
+  }
 }

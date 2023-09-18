@@ -1,6 +1,32 @@
 :host {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
   width: 100%;
   padding: 0.25rem;
+  list-style-type: none;
+  padding: 0.5rem 1rem;
+  background-color: var(--neutral);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  .nav-items {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .spacer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+  }
 }

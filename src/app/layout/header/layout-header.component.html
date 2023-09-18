@@ -1,23 +1,33 @@
-<button
-  mat-icon-button
-  [matMenuTriggerFor]="menu"
-  aria-label="Example icon-button with a menu"
->
-  <i class="las la-bars"></i>
-</button>
+<nav class="nav-items">
+  <li>
+    <button fullButton mat-icon-button [matMenuTriggerFor]="menu">
+      Components
+    </button>
+  </li>
+
+  <li>
+    <button fullButton>
+      <a routerLink="/about">About</a>
+    </button>
+  </li>
+</nav>
+
+<div class="title">
+  <span>Kostas Mavrokoukoulakis</span>
+</div>
+
+<div class="spacer">
+  <button fullButton (click)="logout()">
+    <span>Logout</span>
+  </button>
+</div>
 
 <!-- Hidden -->
 <mat-menu #menu="matMenu" yPosition="above" xPosition="before">
-  <button mat-menu-item>
-    <a class="w-full" routerLink="/about">Home</a>
-  </button>
   <button mat-menu-item>
     <a class="w-full" routerLink="/checkbox">Checkbox</a>
   </button>
   <button mat-menu-item>
     <a class="w-full" routerLink="/dynamic-form">Dynamic Form</a>
-  </button>
-  <button mat-menu-item (click)="logout()">
-    <span>Logout</span>
   </button>
 </mat-menu>

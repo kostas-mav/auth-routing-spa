@@ -1,6 +1,6 @@
-<div class="w-full text-center">Built using CKEditor5, UUID & TailwindCSS</div>
-
 <form>
+  <div class="disclaimer">Built using CKEditor5</div>
+
   <app-form-field
     *ngFor="let formField of formGroupData"
     [fieldControlsGroup]="formField"
@@ -15,11 +15,7 @@
     ADD SECTION
   </button>
 
-  <button
-    class="border rounded bg-white p-1"
-    type="button"
-    (click)="logFormValue()"
-  >
+  <button class="log-button" type="button" (click)="logFormValue()">
     Console Log Form
   </button>
 </form>

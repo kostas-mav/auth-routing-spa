@@ -1,7 +1,7 @@
 <form [formGroup]="form">
   <div class="checkbox-container">
     <app-single-checkbox
-      label="Who's awesome?"
+      label="Wanna see some multi-stage checkbox trees for filter and form components"
       formControlName="single"
     ></app-single-checkbox>
   </div>
@@ -71,4 +71,12 @@
       ></app-chips-checkbox-tree>
     </div>
   </ng-container>
+
+  <button
+    *ngIf="form.controls.single.value === true"
+    class="log-button"
+    (click)="logForm()"
+  >
+    Console Log Form
+  </button>
 </form>

@@ -36,8 +36,8 @@ export class SingleCheckboxComponent
 
   @Input() label!: string;
 
-  readonly defaultOption = 'Me?';
-  readonly defaultOptionTransformed = 'Hell yeah, YOU are!';
+  readonly defaultOption = 'Show me!';
+  readonly defaultOptionTransformed = `Try'em out!`;
 
   checkboxContent = this.defaultOption;
 

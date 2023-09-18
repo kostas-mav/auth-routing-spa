@@ -2,7 +2,7 @@ import { Component, HostListener, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: '[mddFullButton]',
+  selector: '[fullButton]',
   standalone: true,
   imports: [CommonModule],
   template: `<ng-content></ng-content>`,
@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 
         border: solid 1px transparent;
         background-color: #f5f5f5;
-        border-radius: 6px;
+        border-radius: 0.5rem;
         padding: 0.25rem 0.5rem;
       }
     `,
