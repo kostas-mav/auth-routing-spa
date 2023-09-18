@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   @Input() limitControl = this.fb.control(20);
 
   readonly tooltipMessage =
-    "This has been created using the 'https://dog.ceo' API. Libraries used include: Angular Material, ngx-infinite-scroll, line-awesome icons and TailwindCSS. State management for this app is done with the very powerful and compact NGRX Component Store";
+    "This has been created using the 'https://dog.ceo' API. Libraries used include: Angular Material, ngx-infinite-scroll, line-awesome icons and TailwindCSS. State management for this component is done with the very powerful and compact NGRX Component Store";
   imgUrls$ = this.dataAccessStore.items$;
 
   loadMore() {
