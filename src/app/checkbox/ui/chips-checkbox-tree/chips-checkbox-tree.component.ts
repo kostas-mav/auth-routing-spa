@@ -4,7 +4,6 @@ import {
   OnDestroy,
   OnInit,
   SimpleChanges,
-  inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
@@ -14,7 +13,8 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { BasicCheckboxTreeComponent } from 'src/app/shared/components/checkbox-tree/basic-checkbox-tree.component';
-import { ngCVAProvider } from 'src/app/shared/utils/control-value-accessor-provider';
+import { InputLabelComponent } from 'src/app/shared/components/input-label/input-label.component';
+import { ChipComponent } from 'src/app/shared/components/chip/chip.component';
 import { BasicCheckboxTreeStore } from 'src/app/shared/components/checkbox-tree/data-access/basic-checkbox-tree.store';
 import {
   CheckboxTreeBehavior,
@@ -24,8 +24,6 @@ import {
   Observable,
   Subject,
   combineLatest,
-  filter,
-  take,
   takeUntil,
   tap,
   withLatestFrom,
@@ -36,57 +34,106 @@ import {
   getCheckedOptions,
   getExpandedItems,
 } from 'src/app/shared/components/checkbox-tree/utils/filtering-functions';
-import { InputLabelComponent } from 'src/app/shared/components/input-label/input-label.component';
-import { CheckboxTextInputComponent } from '../../ui/text-input/checkbox-text-input.component';
+import { ngCVAProvider } from 'src/app/shared/utils/control-value-accessor-provider';
+import { TextInputComponent } from 'src/app/shared/components/inputs/text-input/text-input.component';
 
 interface ViewModel {
   filteredOptions: Neat[];
   checkedItems: string[];
+  checkedTreeNodeChips: Neat[];
+  checkedItemChips: Neat[];
+  allAvailableItemIds: string[];
 }
 
 @Component({
-  selector: 'app-search-checkbox-tree',
+  selector: 'app-chips-checkbox-tree',
   standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
     BasicCheckboxTreeComponent,
+    TextInputComponent,
     InputLabelComponent,
-    CheckboxTextInputComponent,
+    ChipComponent,
   ],
   providers: [
-    ngCVAProvider(SearchCheckboxTreeComponent),
+    ngCVAProvider(ChipsCheckboxTreeComponent),
     BasicCheckboxTreeStore,
   ],
-  templateUrl: './search-checkbox-tree.component.html',
-  styleUrls: ['./search-checkbox-tree.component.scss'],
+  templateUrl: './chips-checkbox-tree.component.html',
+  styleUrls: ['./chips-checkbox-tree.component.scss'],
 })
-export class SearchCheckboxTreeComponent
+export class ChipsCheckboxTreeComponent
   implements ControlValueAccessor, OnInit, OnDestroy
 {
-  private fb = inject(NonNullableFormBuilder);
-  private store = inject(BasicCheckboxTreeStore);
-
-  @Input({ required: true }) options!: Neat[];
   @Input({ required: true }) behavior: CheckboxTreeBehavior = '3-state';
+  @Input({ required: true }) options!: Neat[];
   @Input() label!: string;
   @Input() placeholder: string = '';
+  @Input() allSelectedLabel: string = 'All';
+  /**
+   * `string` ids that will be compared with all items in the options and if
+   * they match with any they will be moved to the top of their respective tree.
+   */
   @Input() priorityItems: string[] = [];
+  @Input() set enableParentChips(val: '' | boolean) {
+    if (typeof val === 'string') {
+      this.parentChipsEnabled = true;
+    } else {
+      this.parentChipsEnabled = val;
+    }
+  }
+  @Input() set disableDelete(val: '' | boolean) {
+    if (typeof val === 'string') {
+      this.deleteEnabled = false;
+    } else {
+      this.deleteEnabled = val;
+    }
+  }
+
+  parentChipsEnabled: boolean = false;
+  deleteEnabled: boolean = true;
 
   readonly showMoreLimit = 8;
   containerExpanded: boolean = false;
 
-  valueControl: FormControl<string[]> = this.fb.control([]);
-  searchControl = this.fb.control('');
-
   viewModel$: Observable<ViewModel> = combineLatest({
     filteredOptions: this.store.filteredOptions$,
     checkedItems: this.store.checkedItems$,
+    checkedTreeNodeChips: this.store.checkedTreeNodeChips$,
+    checkedItemChips: this.store.checkedItemChips$,
+    allAvailableItemIds: this.store.allAvailableItemIds$,
   });
+
+  valueControl: FormControl<string[]> = this.fb.control([]);
+  searchControl = this.fb.control('');
+
+  onRemove(item: Neat) {
+    if (item.children) {
+      item.children.forEach((child) => this.onRemove(child));
+    } else {
+      (this.valueControl.value as string[]).forEach(
+        (checkedItem: string, idx: number) => {
+          if (checkedItem === item.id) {
+            this.store.removeCheckedItem(item.id);
+            (this.valueControl.value as string[]).splice(idx, 1);
+            this.valueControl.updateValueAndValidity();
+          }
+        }
+      );
+    }
+  }
+
+  onClearAll() {
+    this.store.setCheckedItems([]);
+    (this.valueControl.value as string[]).splice(0);
+    this.valueControl.updateValueAndValidity();
+  }
 
   writeValue(value: string[]): void {
     if (value.length && !this.containerExpanded) this.expandContainer();
     this.valueControl.setValue(value || [], { emitEvent: false });
+    // this.store.setCheckedItems(value);
     this.store.setCheckedItems(
       getCheckedItemsByAvailableOptions(this.options, value)
     );
@@ -125,25 +172,10 @@ export class SearchCheckboxTreeComponent
     this.containerExpanded = false;
   }
 
-  // Called when the `@Input() options` value changes to update the store. Most likely only once.
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['options']) {
-      this.store.options$
-        .pipe(
-          take(1),
-          filter((options) => !options.length),
-          tap(() => {
-            this.store.setOptions(this.options);
-            this.store.setFilteredOptions(
-              this.options.slice(0, this.showMoreLimit)
-            );
-            this.store.setCheckedItems([]);
-            this.store.setExpandedItems([]);
-          })
-        )
-        .subscribe();
-    }
-  }
+  constructor(
+    private store: BasicCheckboxTreeStore,
+    private fb: NonNullableFormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.searchControl.valueChanges
@@ -172,9 +204,19 @@ export class SearchCheckboxTreeComponent
       .subscribe();
   }
 
-  private _destroy$ = new Subject();
+  // Called when the `@Input() options` value changes to update the store. Most likely only once.
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['options']) {
+      this.store.setOptions(this.options);
+      this.store.setFilteredOptions(this.options.slice(0, this.showMoreLimit));
+      this.store.setCheckedItems([]);
+      this.store.setExpandedItems([]);
+    }
+  }
+
+  private _destroy$ = new Subject<void>();
 
   ngOnDestroy(): void {
-    this._destroy$.next(null);
+    this._destroy$.next();
   }
 }

@@ -4,7 +4,11 @@
     <i class="las la-search"></i>
   </app-input-label>
 
-  <checkbox-text-input (click)="onTouch()" [formControl]="searchControl" />
+  <app-text-input
+    type="text"
+    (click)="onTouch()"
+    [formControl]="searchControl"
+  />
 
   <div
     *ngIf="parentChipsEnabled"
