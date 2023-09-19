@@ -12,15 +12,18 @@ form {
   width: 100%;
   height: 100%;
   padding-top: 1rem;
-
   background-color: var(--secondary);
+
+  @apply dark:bg-dark-secondary;
 
   .disclaimer {
     border: 1px solid black;
     border-radius: 0.5rem;
     background-color: var(--primary);
-    color: var(--tertiary);
+    color: white;
     padding: 0.25rem 0.5rem;
     width: fit-content;
+
+    @apply dark:bg-dark-primary;
   }
 }

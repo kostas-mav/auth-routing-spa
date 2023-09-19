@@ -22,6 +22,7 @@ import { Subject } from 'rxjs';
         border-radius: 4px;
         padding: 0.25rem 0.5rem;
         width: fit-content;
+        @apply dark:bg-dark-tertiary;
 
         font-weight: 400;
         font-size: 16px;

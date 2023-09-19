@@ -23,15 +23,15 @@ import { LeafNodeComponent } from './leaf-node.component';
         [intermediate]="treeNode.state === 'intermediate'"
         (onChange)="onChange($event)"
       ></app-checkbox>
-      <label
+      <div
         (click)="onToggleExpand()"
         class="flex items-center justify-between flex-1 gap-4 cursor-pointer label-font"
       >
-        {{ treeNode.label }}
+        <span>{{ treeNode.label }}</span>
         <i
           [class]="treeNode.expanded ? 'las la-angle-up' : 'las la-angle-down'"
         ></i>
-      </label>
+      </div>
     </li>
     <ul *ngIf="treeNode.expanded" class="pl-4">
       <ng-container *ngFor="let node of treeNode.children">
@@ -64,6 +64,7 @@ import { LeafNodeComponent } from './leaf-node.component';
           line-height: 20px;
 
           color: var(--tertiary);
+          @apply dark:text-dark-tertiary;
         }
 
         ul {

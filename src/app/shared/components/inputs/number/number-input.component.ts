@@ -27,16 +27,16 @@ export class NumberInputComponent
 
   @Input() label = '';
   @Input() placeholder = '';
-  @Input() control = this.fb.control('');
+  @Input() control = this.fb.control(1);
 
-  onChange = (value: string) => {};
+  onChange = (value: number) => {};
   onTouched = () => {};
 
-  writeValue(value: string): void {
+  writeValue(value: number): void {
     this.control.setValue(value);
   }
   registerOnChange(fn: any): void {
-    fn = this.onChange;
+    this.control.valueChanges.subscribe((f) => (f = fn));
   }
   registerOnTouched(fn: any): void {
     fn = this.onTouched;

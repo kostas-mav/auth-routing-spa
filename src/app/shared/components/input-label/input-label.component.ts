@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
         line-height: 24px;
 
         color: var(--tertiary);
+        @apply dark:text-dark-tertiary;
       }
     `,
   ],

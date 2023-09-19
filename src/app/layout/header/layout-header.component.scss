@@ -6,8 +6,8 @@
   padding: 0.25rem;
   list-style-type: none;
   padding: 0.5rem 1rem;
-  background-color: var(--neutral);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary);
 
   .nav-items {
     display: flex;
@@ -22,11 +22,14 @@
     align-items: center;
     gap: 1rem;
     width: 100%;
+    color: white;
   }
+
   .spacer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    gap: 0.5rem;
     width: 100%;
   }
 }

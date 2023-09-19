@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding: 1rem;
 }
 
 .cv-section {
@@ -16,7 +17,7 @@
   max-width: 700px;
   border: 1px solid black;
   border-radius: 0.5rem;
-  background-color: white;
+  background-color: #f6f6f6;
   padding: 1rem;
 
   color: var(--font);
@@ -31,15 +32,4 @@
     gap: 0.25rem;
     width: 100%;
   }
-}
-
-.info {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  padding: 10px 1.5rem;
-  background-color: var(--primary);
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
 }

@@ -4,19 +4,18 @@
       <app-tooltip [message]="tooltipMessage"></app-tooltip>
     </li>
 
-    <li class="toolbar-item justify-center text-white">
-      <span>Doggos!</span>
+    <li class="toolbar-item justify-center">
+      <strong>Doggos!</strong>
     </li>
 
     <li class="toolbar-item justify-end">
-      <span class="text-white">Item limit per request:</span>
+      <span class="text-font">Item limit per request:</span>
       <app-number-input
-        [formControl]="limitControl"
+        [control]="limitControl"
         type="number"
         [min]="20"
         [max]="50"
       ></app-number-input>
-      <!-- <input [formControl]="limitControl" type="number" min="20" max="50" /> -->
     </li>
   </form>
 </div>
@@ -38,7 +37,7 @@
 <div class="footer">
   <button
     matTooltip="Or scroll to the end"
-    class="load-more-button text-font"
+    class="load-more-button text-font dark:text-dark-font"
     (click)="loadMore()"
   >
     Load More

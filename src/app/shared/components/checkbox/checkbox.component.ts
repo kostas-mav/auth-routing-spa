@@ -28,6 +28,7 @@ import { Subject } from 'rxjs';
       :host {
         display: flex;
         align-items: center;
+        background-color: transparent;
       }
 
       i {
@@ -58,8 +59,10 @@ import { Subject } from 'rxjs';
         font-weight: 400;
         font-size: 16px;
         line-height: 20px;
-
+        background-color: transparent;
         color: var(--tertiary);
+
+        @apply dark:text-dark-tertiary;
       }
     `,
   ],
