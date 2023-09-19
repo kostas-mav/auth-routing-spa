@@ -38,6 +38,7 @@ testem.log
 /typings
 .firebase
 .firebaserc
+firebase-debug.log
 firebase.json
 
 # System files
