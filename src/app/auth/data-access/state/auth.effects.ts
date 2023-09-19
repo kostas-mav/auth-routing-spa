@@ -40,7 +40,6 @@ export class AuthEffects {
       this.actions$.pipe(
         ofType(AuthActions.logout),
         tap(() => {
-          console.log('logging out');
           localStorage.removeItem('kostas-spa-user');
           this.router.navigate(['/login']);
         })

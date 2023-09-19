@@ -23,7 +23,6 @@ describe('CardComponent', () => {
   }));
 
   it('should create the host component', () => {
-    console.log(component);
     expect(component).toBeTruthy();
   });
 

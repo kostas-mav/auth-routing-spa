@@ -151,7 +151,6 @@ export class SearchCheckboxTreeComponent
         takeUntil(this._destroy$),
         withLatestFrom(this.store.options$, this.store.checkedItems$),
         tap(([query, options, checkedItems]) => {
-          console.log(query);
           if (query.trim().length > 0) {
             const newOptions = filterOptionsByName(
               options,

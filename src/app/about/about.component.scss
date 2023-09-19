@@ -32,3 +32,14 @@
     width: 100%;
   }
 }
+
+.info {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  padding: 10px 1.5rem;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+}

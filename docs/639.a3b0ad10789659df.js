@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkspa_routing_showcase=self.webpackChunkspa_routing_showcase||[]).push([[639],{5639:(h,s,n)=>{n.r(s),n.d(s,{ABOUT_ROUTES:()=>o});const o=[{path:"",loadComponent:()=>n.e(94).then(n.bind(n,8094)).then(t=>t.AboutComponent)}]}}]);
