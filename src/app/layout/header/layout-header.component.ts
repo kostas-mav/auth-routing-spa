@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from 'src/app/shared/material/material.module';
@@ -11,6 +11,7 @@ import { FullButtonComponent } from 'src/app/shared/components/buttons/full-butt
   imports: [CommonModule, RouterModule, MaterialModule, FullButtonComponent],
   templateUrl: './layout-header.component.html',
   styleUrls: ['./layout-header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutHeaderComponent {
   authFacade = inject(AuthFacade);

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Neat } from '../shared/components/checkbox-tree/utils/types';
 import { CheckboxTreeComponent } from './ui/checkbox-tree/checkbox-tree.component';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
@@ -29,6 +29,7 @@ const mockMultiOptions: Neat[] = MULTI_LEVEL_DATA;
   ],
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckboxPageComponent {
   private fb = inject(NonNullableFormBuilder);

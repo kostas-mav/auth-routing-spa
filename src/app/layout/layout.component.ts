@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutHeaderComponent } from './header/layout-header.component';
 import { RouterModule } from '@angular/router';
@@ -9,5 +9,6 @@ import { RouterModule } from '@angular/router';
   imports: [CommonModule, RouterModule, LayoutHeaderComponent],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutComponent {}

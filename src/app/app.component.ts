@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { StickyInfoComponent } from './sticky-info/sticky-info.component';
 
@@ -11,5 +11,6 @@ import { StickyInfoComponent } from './sticky-info/sticky-info.component';
     <router-outlet></router-outlet>
     <app-sticky-info></app-sticky-info>
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {}

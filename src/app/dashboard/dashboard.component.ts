@@ -1,4 +1,11 @@
-import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  inject,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from '../shared/components/card/card.component';
 import { DataAccessStore } from './data-access/data-access-store';
@@ -23,6 +30,7 @@ import { NumberInputComponent } from '../shared/components/inputs/number/number-
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   private _destroy$ = new Subject<null>();
