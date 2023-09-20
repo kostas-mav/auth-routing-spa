@@ -89,5 +89,6 @@ export class StickyInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.themeService.getTheme();
+    this.theme$.pipe().subscribe((x) => console.log(x));
   }
 }

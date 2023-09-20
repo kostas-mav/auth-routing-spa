@@ -21,14 +21,14 @@ export class ThemeService extends ComponentStore<{
     localStorage.setItem('kostas-theme', 'dark');
     this.patchState({ theme: 'dark' });
     const html = document.querySelector('html');
-    html!.classList.toggle('dark');
+    html!.classList.add('dark');
   }
 
   setLightTheme() {
     localStorage.removeItem('kostas-theme');
     this.patchState({ theme: 'light' });
     const html = document.querySelector('html');
-    html!.classList.toggle('dark');
+    html!.classList.remove('dark');
   }
 
   getTheme() {
