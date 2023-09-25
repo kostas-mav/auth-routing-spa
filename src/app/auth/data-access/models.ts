@@ -1,3 +1,8 @@
+/**
+ * The User type is a class instead of an interface to have access to a
+ * custom ".create" static method to imidiately instantiate a mock object
+ * instead of adding the properties ad hoc everytime
+ */
 export class User {
   id: string = '1';
   email: string = 'kostasmavrokou@gmail.com';
@@ -11,12 +16,6 @@ export class User {
 }
 
 export interface LoginCredentials {
-  email: string;
-  password: string;
-}
-
-export interface SignUpData {
-  name: string;
   email: string;
   password: string;
 }

@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Neat } from '../shared/components/checkbox-tree/utils/types';
 import { CheckboxTreeComponent } from './ui/checkbox-tree/checkbox-tree.component';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ChipsCheckboxTreeComponent } from './ui/chips-checkbox-tree/chips-checkbox-tree.component';
@@ -10,10 +9,6 @@ import { SINGLE_LEVEL_DATA } from 'src/mock/single-level-data';
 import { DOUBLE_LEVEL_DATA } from 'src/mock/double-level-data';
 import { MULTI_LEVEL_DATA } from 'src/mock/multi-level-data';
 import { FullButtonComponent } from '../shared/components/buttons/full-button/full-button.component';
-
-const mockSingleOptions: Neat[] = SINGLE_LEVEL_DATA;
-const mockDoubleOptions: Neat[] = DOUBLE_LEVEL_DATA;
-const mockMultiOptions: Neat[] = MULTI_LEVEL_DATA;
 
 @Component({
   selector: 'app-checkbox-page',
@@ -45,9 +40,9 @@ export class CheckboxPageComponent {
     parentChips: [[]],
   });
 
-  readonly singleLevelOptions = mockSingleOptions;
-  readonly doubleLevelOptions = mockDoubleOptions;
-  readonly multiLevelOptions = mockMultiOptions;
+  readonly singleLevelOptions = SINGLE_LEVEL_DATA;
+  readonly doubleLevelOptions = DOUBLE_LEVEL_DATA;
+  readonly multiLevelOptions = MULTI_LEVEL_DATA;
 
   logForm() {
     console.log(

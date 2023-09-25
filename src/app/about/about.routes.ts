@@ -1,9 +1,9 @@
 import { Route } from '@angular/router';
+import { AboutComponent } from './about.component';
 
 export const ABOUT_ROUTES: Route[] = [
   {
     path: '',
-    loadComponent: () =>
-      import('./about.component').then((m) => m.AboutComponent),
+    component: AboutComponent,
   },
 ];

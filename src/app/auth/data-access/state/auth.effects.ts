@@ -11,6 +11,11 @@ export class AuthEffects {
   private actions$ = inject(Actions);
   private router = inject(Router);
 
+  /**
+   * As there is no actual database to save or serve user data,
+   * the local storage is enough for this presentational showcase.
+   */
+
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.login),
