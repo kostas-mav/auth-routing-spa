@@ -49,6 +49,10 @@ export class SingleCheckboxComponent
       : this.defaultOption;
   }
 
+  /**
+   * ControlValueAccessor methods
+   */
+
   writeValue(value: boolean): void {
     this.control.setValue(value);
   }

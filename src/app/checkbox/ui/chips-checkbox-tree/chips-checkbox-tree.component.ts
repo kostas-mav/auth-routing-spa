@@ -138,13 +138,13 @@ export class ChipsCheckboxTreeComponent
       getCheckedItemsByAvailableOptions(this.options, value)
     );
   }
-  /** @description Save a reference to the change function passed to us by the Angular form control */
+  /** Save a reference to the change function passed to us by the Angular form control */
   registerOnChange(fn: (value: string[]) => void): void {
     this.valueControl.valueChanges
       .pipe(takeUntil(this._destroy$))
       .subscribe(fn);
   }
-  /** @description Save a reference to the touched function passed to us by the Angular form control */
+  /** Save a reference to the touched function passed to us by the Angular form control */
   registerOnTouched(fn: () => void): void {
     fn = this.onTouch;
   }

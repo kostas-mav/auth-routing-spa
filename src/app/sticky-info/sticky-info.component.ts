@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StyleTheme, ThemeService } from './theme.service';
 
@@ -89,6 +89,5 @@ export class StickyInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.themeService.getTheme();
-    this.theme$.pipe().subscribe((x) => console.log(x));
   }
 }

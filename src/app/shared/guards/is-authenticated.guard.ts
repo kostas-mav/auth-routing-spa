@@ -13,6 +13,9 @@ class IsAuthenticatedGuard {
       map((isLoggedIn) => {
         const localyStoredUser = localStorage.getItem('kostas-spa-user');
 
+        // If the user is not logged in and there's no user stored in
+        // local-storage reroute to '/login'.
+        // Otherwise load the page
         if (!isLoggedIn && !localyStoredUser) {
           return this.router.createUrlTree(['/login']);
         } else {

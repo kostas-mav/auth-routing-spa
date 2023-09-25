@@ -1,6 +1,12 @@
 import { HttpClient, HttpParamsOptions } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+/**
+ * Gather all the possible http request methods into one service to not repeat
+ * yourself (DRY) in multiple other services. Only the GET method is used
+ * in this app but some more have been added to show use cases.
+ */
+
 @Injectable({
   providedIn: 'root',
 })

@@ -3,7 +3,6 @@ import {
   Component,
   Input,
   OnDestroy,
-  OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -80,9 +79,7 @@ interface ViewModel {
     </ng-container>
   `,
 })
-export class CheckboxTreeComponent
-  implements ControlValueAccessor, OnInit, OnDestroy
-{
+export class CheckboxTreeComponent implements ControlValueAccessor, OnDestroy {
   @Input({ required: true }) options!: Neat[];
   @Input({ required: true }) behavior!: CheckboxTreeBehavior;
   @Input() label!: string;
@@ -103,11 +100,11 @@ export class CheckboxTreeComponent
       getCheckedItemsByAvailableOptions(this.options, value)
     );
   }
-  /** @description Save a reference to the change function passed to us by the Angular form control */
+  /** Save a reference to the change function passed to us by the Angular form control */
   registerOnChange(fn: (value: string[]) => void): void {
     this.control.valueChanges.pipe(takeUntil(this._destroy$)).subscribe(fn);
   }
-  /** @description Save a reference to the touched function passed to us by the Angular form control */
+  /** Save a reference to the touched function passed to us by the Angular form control */
   registerOnTouched(fn: () => void): void {
     fn = this.onTouch;
   }
@@ -139,8 +136,6 @@ export class CheckboxTreeComponent
     private store: BasicCheckboxTreeStore,
     private fb: NonNullableFormBuilder
   ) {}
-
-  ngOnInit(): void {}
 
   // Called when the `@Input() options` value changes to update the store. Most likely only once.
   ngOnChanges(changes: SimpleChanges): void {

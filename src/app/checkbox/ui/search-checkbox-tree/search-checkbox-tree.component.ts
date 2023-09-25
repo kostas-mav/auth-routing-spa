@@ -91,13 +91,13 @@ export class SearchCheckboxTreeComponent
       getCheckedItemsByAvailableOptions(this.options, value)
     );
   }
-  /** @description Save a reference to the change function passed to us by the Angular form control */
+  /** Save a reference to the change function passed to us by the Angular form control */
   registerOnChange(fn: (value: string[]) => void): void {
     this.valueControl.valueChanges
       .pipe(takeUntil(this._destroy$))
       .subscribe(fn);
   }
-  /** @description Save a reference to the touched function passed to us by the Angular form control */
+  /** Save a reference to the touched function passed to us by the Angular form control */
   registerOnTouched(fn: () => void): void {
     fn = this.onTouch;
   }
@@ -125,7 +125,7 @@ export class SearchCheckboxTreeComponent
     this.containerExpanded = false;
   }
 
-  // Called when the `@Input() options` value changes to update the store. Most likely only once.
+  // Called when the `@Input() options` value changes to update the store.
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['options']) {
       this.store.options$

@@ -15,6 +15,9 @@ class IsUnauthenticatedGuard {
       switchMap((isLoggedIn) => {
         const localyStoredUser = localStorage.getItem('kostas-spa-user');
 
+        // Since no user data other than a randomly generated ID is stored
+        // if a user id is present in the local storage, update the store with
+        // a user that shares that ID and set the loggedIn flag to true
         if (localyStoredUser)
           this.authFacade.setUser(User.create({ id: localyStoredUser }));
 
